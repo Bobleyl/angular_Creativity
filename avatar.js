@@ -3,6 +3,7 @@ app.controller('imageCtrl', function($scope) {
     $scope.imageList = [];
 
     $scope.imageAdd = function() {
+        $scope.imageList.push({imageText:$scope.imageInput, done:false});
         $scope.imageInput = "";
     };
 
