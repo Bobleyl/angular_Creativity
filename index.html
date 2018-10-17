@@ -7,26 +7,22 @@
   <meta charset="utf-8">
   <title>User Avatar Template</title>
 </head>
-<body>
-  <div id="form" ng-app='app' ng-controller='mainCtrl'>
-    <h1>Create new user</h1>
-
-    <form name='userForm' ng-submit='addNew(userForm)'>
-      <input placeholder='Name' ng-model='userForm.name'/>
-      <br>
-      <input placeholder='Email' ng-model='userForm.email'/>
-      <br>
-      <input placeholder='Image Url' ng-model='userForm.url'/>
-      <br>
-      <button type='submit'>Add New</button>
+<body ng-app="myApp" ng-controller="todoCtrl">
+    
+    <h2>My Todo List</h2>
+    
+    <form ng-submit="todoAdd()">
+        <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
+        <input type="submit" value="Add New">
     </form>
     
-    <ul class='User-list'>
-      <li ng-repeat='user in users'>
-        <avatar user='user' />
-      </li>
-    </ul>
-  </div>
+    <br>
+    
+    <div ng-repeat="x in todoList">
+        <input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
+    </div>
+
+    <p><button ng-click="remove()">Remove marked</button></p>
   <style>
     #form {
       text-align: center;

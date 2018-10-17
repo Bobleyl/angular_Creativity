@@ -1,48 +1,17 @@
-angular.module('app', [])
-  .controller('mainCtrl', mainCtrl)
-  .directive('avatar', avatarDirective);
+var app = angular.module('myApp', []); 
+app.controller('todoCtrl', function($scope) {
+    $scope.todoList = [{todoText:'Write Code', done:false}];
 
-function mainCtrl ($scope) {
+    $scope.todoAdd = function() {
+        $scope.todoList.push({todoText:$scope.todoInput, done:false});
+        $scope.todoInput = "";
+    };
 
-  $scope.users = [];
-
-  $scope.addNew = function (user) {
-    $scope.users.push({ 
-      name: user.name,
-      email: user.email,
-      avatarUrl: user.url
-    }); /* [1] */
-    
-    user.name = ''; /* [2] */
-    user.email = '';
-    user.url = ''; 
-  };
-}
-
-function avatarDirective () {
-  return {
-    scope: {
-      user: '=' /* [1] */
-    },
-    restrict: 'E', /* [2] */
-    replace: 'true',
-    template: (
-      '<div class="Avatar">' +
-        '<img ng-src="{{user.avatarUrl}}" />' +
-        '<h4>{{user.name}}</h4>' +
-        '<h4>{{user.email}}</h4>' + 
-      '</div>'
-    ), /* [3] */
-    link: link
-  };
-  
-  function link (scope) { /* [4] */
-    if (!scope.user.avatarUrl) {
-      scope.user.avatarUrl = 'https://www.drupal.org/files/issues/default-avatar.png';
-    }
-    if(!scope.user.email) {
-      scope.user.email = "No email given.";
-    }
-  }
-
-}
+    $scope.remove = function() {
+        var oldList = $scope.todoList;
+        $scope.todoList = [];
+        angular.forEach(oldList, function(x) {
+            if (!x.done) $scope.todoList.push(x);
+        });
+    };
+});
