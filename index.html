@@ -1,34 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" href="main.css">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
-<script src="avatar.js"></script>
-  <meta charset="utf-8">
-  <title>User Avatar Template</title>
-</head>
-<body ng-app="myApp" ng-controller="imageCtrl">
-    
-    <h2>My Todo List</h2>
-    
-    <form ng-submit="imageAdd()">
-        <input type="file" ng-model="imageInput" size="50">
-        <input type="submit" value="Add New">
-    </form>
-    
-    <br>
-    
-    <div ng-repeat="x in imageList">
-        <input type="checkbox" ng-model="x.done"> <span ng-src="x.path"></span>
-    </div>
 
-    <p><button ng-click="remove()">Remove marked</button></p>
-  <style>
-    #form {
-      text-align: center;
-      font-family: helvetica;
-      border: 1px solid black;
-    }
-  </style>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <h1>Search for a GIF</h1>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <form ng-submit="showGifs()" id="userInputForm">
+            <input ng-model="gifInput" type="text" placeholder="Enter a keyword or phrase" />
+            <button type="submit" id="gifSubmit">Give me a GIF!</button>
+        </form>
+        <div ng-repeat="gif in gifList" id="gifdiv">
+            <video width="320" height="240" autoplay loop>
+                <source ng-src="{{gif}}" type="video/mp4">
+            </video>
+        </div>
+    </div>
 </body>
+
 </html>
