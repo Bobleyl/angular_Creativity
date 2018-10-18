@@ -4,9 +4,11 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
+  <div id="mainBody"> 
     <h1>Search for a GIF</h1>
     <div ng-app="myApp" ng-controller="myCtrl">
         <form ng-submit="showGifs()" id="userInputForm">
@@ -19,6 +21,7 @@
             </video>
         </div>
     </div>
+  </div> 
 </body>
 
 </html>
