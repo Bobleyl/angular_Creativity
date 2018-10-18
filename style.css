@@ -2,3 +2,21 @@
     text-align: center;
     padding: 25px;
 }
+
+body{
+    font-family: Palatino;
+    background-image: url('bg.jpg');
+    background-size: cover;
+}
+
+#inputBtn{
+    width: 250px;  
+    text-align: center;
+    padding: 5px;
+}
+
+#titleText{
+    font-family: Palatino;
+    font-size: 50px;
+    color: white;
+}

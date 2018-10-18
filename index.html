@@ -2,6 +2,11 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+    .w3-button {width:150px;}
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="index.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -9,12 +14,15 @@
 
 <body>
   <div id="mainBody"> 
-    <h1>Search for a GIF</h1>
+    <h1 id="titleText">Search for a GIF</h1>
     <div ng-app="myApp" ng-controller="myCtrl">
         <form ng-submit="showGifs()" id="userInputForm">
-            <input ng-model="gifInput" type="text" placeholder="Enter a keyword or phrase" />
-            <button type="submit" id="gifSubmit">Give me a GIF!</button>
+            <div class="w3-container">
+                <input id="inputBtn" ng-model="gifInput" type="text" placeholder="Enter a keyword or phrase" />
+                <button class="w3-button w3-blue-grey w3-round-large" type="submit" id="gifSubmit">Give me a GIF!</button>
+            </div>
         </form>
+        <br><br><br>
         <div ng-repeat="gif in gifList" id="gifdiv">
             <video width="320" height="240" autoplay loop>
                 <source ng-src="{{gif}}" type="video/mp4">
