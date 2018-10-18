@@ -37,12 +37,16 @@
                 <td ng-click="sort('company')">Company
                     <span class="glyphicon sort-icon" ng-show="sortKey=='company'" ng-class="{'glyphicon-chevron-up':sortReverse,'glyphicon-chevron-down':!sortReverse}"></span>
                 </td>
+                <td ng-click="sort('netWorth')">Net Worth
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='netWorth'" ng-class="{'glyphicon-chevron-up':sortReverse,'glyphicon-chevron-down':!sortReverse}"></span>
+                </td>
             </tr>
             <tr dir-paginate="person in people | filter: queryText | orderBy:sortKey:sortReverse | itemsPerPage: itemsPerPage" pagination-id="people">
                 <td>{{person.name}}</td>
                 <td>{{person.age}}</td>
                 <td>{{person.gender}}</td>
                 <td>{{person.company}}</td>
+                <td>{{person.netWorth}}</td>
             </tr>
           </table>
         </div>
