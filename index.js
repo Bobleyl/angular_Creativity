@@ -1,5 +1,3 @@
-var randNum = Math.floor(Math.random() * 10) + 1;
-
 var app = angular.module('myApp', [])
 app.controller('myCtrl', function($scope, $http) {
 
@@ -10,6 +8,7 @@ app.controller('myCtrl', function($scope, $http) {
     $scope.showGifs = function() {
         $scope.gifList = [];
         $scope.url = "http://api.giphy.com/v1/gifs/search?q=";
+        var randNum = Math.floor(Math.random() * 10);
         $scope.gifSearch = $scope.gifInput;
         $scope.gifInput = "";
         $scope.gifSearchForUrl();
