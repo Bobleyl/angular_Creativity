@@ -20,3 +20,7 @@ body{
     font-size: 50px;
     color: white;
 }
+
+.w3-button {
+    width:150px;
+}
